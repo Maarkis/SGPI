@@ -9,9 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGPI.Domain", "src\SGPI.Domain\SGPI.Domain.csproj", "{2855D92C-EF40-4A89-B96E-EFAA8EA2471A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGPI.Domain.Test", "test\SGPI.Domain.Test\SGPI.Domain.Test.csproj", "{70DB38E2-33A2-4D23-A1FC-CF6A5384387E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGPI.Domain.UnitTest", "test\SGPI.Domain.UnitTest\SGPI.Domain.UnitTest.csproj", "{70DB38E2-33A2-4D23-A1FC-CF6A5384387E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGPI.Application.Test", "test\SGPI.Application.Test\SGPI.Application.Test.csproj", "{AA5D57D2-B3F0-48E0-82BE-5A61B8324296}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGPI.Application.UnitTest", "test\SGPI.Application.UnitTest\SGPI.Application.UnitTest.csproj", "{AA5D57D2-B3F0-48E0-82BE-5A61B8324296}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
