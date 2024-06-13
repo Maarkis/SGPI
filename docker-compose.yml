@@ -1,0 +1,6 @@
+﻿services:
+  sgpi.application:
+    image: sgpi.application
+    build:
+      context: .
+      dockerfile: src/SGPI.Application/Dockerfile
