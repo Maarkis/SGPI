@@ -4,3 +4,48 @@
     build:
       context: .
       dockerfile: src/SGPI.Application/Dockerfile
+    ports:
+      - "8080:80"
+      - "8081:443"
+    networks:
+      - sgpi-network
+    depends_on:
+      - sgpi.database
+      
+      
+  sgpi.database:
+    image: postgres
+    container_name: sgpi.database
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: postgres
+    volumes:
+      - ./database/postgresql/data:/var/lib/postgresql/data
+    networks:
+      - sgpi-network
+    
+  sgpi.pgadmin:
+    image: dpage/pgadmin4
+    container_name: sgpi.pgadmin
+    volumes:
+      - ./database/pgadmin:/pgadmin4/servers.json
+    ports:
+      - "8082:8082"
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: 123
+      PGADMIN_LISTEN_PORT: 8082
+    depends_on:
+      - sgpi.database
+    networks:
+      - sgpi-network
+        
+
+networks:
+  sgpi-network:
+    driver: bridge
