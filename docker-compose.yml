@@ -44,8 +44,20 @@
       - sgpi.database
     networks:
       - sgpi-network
-        
+      
+  sgpi.notifyinvest.job:
+      image: sgpi.notifyinvest.job
+      build:
+        context: .
+        dockerfile: jobs/SGPI.NotifyInvest.Job/Dockerfile
+      depends_on:
+        - sgpi.database        
+      networks:
+        - sgpi-network
 
 networks:
   sgpi-network:
     driver: bridge
+
+# TODO: Olhar configurações e conexões (variaveis de ambiente)
+

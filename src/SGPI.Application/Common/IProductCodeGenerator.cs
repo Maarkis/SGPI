@@ -14,10 +14,12 @@ public class ProductCodeGenerator : IProductCodeGenerator
         ArgumentNullException.ThrowIfNull(date, nameof(date));
         
         var slugProduct = name
+            .Trim()
             .Split(' ')
             .Aggregate(string.Empty, (current, word) => current + word[0])
             .ToUpperInvariant();
         var slugType = type
+            .Trim()
             .Split(' ')
             .Aggregate(string.Empty, (current, word) => current + word[0])
             .ToUpperInvariant();

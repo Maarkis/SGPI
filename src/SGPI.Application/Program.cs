@@ -16,6 +16,7 @@ builder.Services
     .AddMediatR(config => config.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()))
     .AddSwaggerGen();
 
+
 builder.Services.AddScoped<IFinancialProductRepository, FinancialProductRepository>();
 builder.Services.AddSingleton<IProductCodeGenerator, ProductCodeGenerator>();
 

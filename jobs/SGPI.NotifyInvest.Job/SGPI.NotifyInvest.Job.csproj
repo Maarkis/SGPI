@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>dotnet-SGPI.NotifyInvest.Job-7436CCAD-3728-4AA7-9113-E88E8EFE9052</UserSecretsId>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <PreserveCompilationContext>true</PreserveCompilationContext>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Dapper" Version="2.1.35" />        
+        <PackageReference Include="FluentEmail.Core" Version="3.0.2" />        
+        <PackageReference Include="FluentEmail.Razor" Version="3.0.2" />        
+        <PackageReference Include="FluentEmail.Smtp" Version="3.0.2" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
+        <PackageReference Include="Npgsql" Version="8.0.3" />
+        <PackageReference Include="Quartz" Version="3.9.0" />
+        <PackageReference Include="Quartz.Extensions.DependencyInjection" Version="3.9.0" />
+        <PackageReference Include="Quartz.Extensions.Hosting" Version="3.9.0" />        
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Content Include="..\..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
+    </ItemGroup>
+</Project>

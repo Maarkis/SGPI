@@ -41,8 +41,6 @@ public interface IFinancialProductRepository :
     IGetAllRepository<FinancialProduct>,
     IUpdateRepository<FinancialProduct>,
     IDeleteRepository,
-    ISaveRepository
-{
-}
+    ISaveRepository;
 
 

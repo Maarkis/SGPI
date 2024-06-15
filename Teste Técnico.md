@@ -19,7 +19,7 @@ Criar um serviço que permita o time de operação realizar manutenção nos pro
   - [x] Visulizar um produto
   - [x] Editar produto
   - [x] Deletar produto  
-- [ ] Disparo de e-mail diário para notificar os administradores a respeito dos produtos com vencimento próximo
+- [x] Disparo de e-mail diário para notificar os administradores a respeito dos produtos com vencimento próximo
 - [ ] Criar um serviço que permita o cliente comprar, vender e consultar seus investimentos.
 
 ### Funcionalidades:

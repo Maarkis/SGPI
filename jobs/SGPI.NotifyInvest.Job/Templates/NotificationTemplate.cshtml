@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td, th {
+      border: 1px solid #d3d3d3;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+  <title> Notification </title>
+</head>
+<body>
+
+<h2>Produtos expirando</h2>
+<table>
+  <tr>
+    <th>Código do produto</th>
+    <th>Nome</th>
+    <th>Data</th>
+  </tr>
+
+  @foreach (var item in Model.Products) {
+    <tr>
+        <td>@item.ProductCode</td>
+        <td>@item.Name</td>
+        <td>@item.MaturityDate</td>
+    </tr>
+  }
+</table>
+</body>
+</html>
