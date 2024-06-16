@@ -5,16 +5,16 @@
       context: .
       dockerfile: src/SGPI.Application/Dockerfile
     ports:
-      - "8080:80"      
+      - "8080:80"
     environment:
       ASPNETCORE_ENVIRONMENT: Production
       ASPNETCORE_URLS: http://+80
-      ConnectionStrings__AppDb:  
+      ConnectionStrings__AppDb:
     restart: always
     networks:
       - sgpi-network
     depends_on:
-      - sgpi.database  
+      - sgpi.database
   
   sgpi.database:
     image: postgres
@@ -54,19 +54,19 @@
       context: .
       dockerfile: jobs/SGPI.NotifyInvest.Job/Dockerfile
     environment:
-      ConnectionStrings__AppDb: 
+      ConnectionStrings__AppDb:
       MailSendClient__Url: https://api.mailersend.com
-      MailSendClient__Token: 
+      MailSendClient__Token:
       MailSendClient__Name: SGPI
-      MailSendClient__Email: 
+      MailSendClient__Email:
       MailSenderSMTP__Host: "smtp.mailersend.net"
       MailSenderSMTP__Port: 587
-      MailSenderSMTP__Username: 
-      MailSenderSMTP__Password: 
+      MailSenderSMTP__Username:
+      MailSenderSMTP__Password:
       MailSenderSMTP__Name: SGPI
-      MailSenderSMTP__Email: 
-      Recipient__Name: 
-      Recipient__Email: 
+      MailSenderSMTP__Email:
+      Recipient__Name:
+      Recipient__Email:
     restart: always
     depends_on:
       - sgpi.database
