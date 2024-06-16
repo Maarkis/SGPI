@@ -45,7 +45,7 @@ public class FinancialProductTransactionMap : AuditableEntityMap<FinancialProduc
         builder
             .HasDiscriminator<TransactionType>("TransactionType")
             .HasValue<FinancialProductPurchase>(TransactionType.Buy)
-            .HasValue<FinancialProductSale>(TransactionType.Sale);
+            .HasValue<FinancialProductSale>(TransactionType.Sell);
 
 
         builder.ToTable("financial_product_transactions");

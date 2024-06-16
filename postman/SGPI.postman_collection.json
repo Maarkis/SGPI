@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "58077622-41f4-4f9a-8d70-61f96ca15fef",
+		"name": "SGPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9549095",
+		"_collection_link": "https://smart-economy.postman.co/workspace/Smart-Economy~cf458ecf-f8f5-49cd-b139-728c7c82af94/collection/9549095-58077622-41f4-4f9a-8d70-61f96ca15fef?action=share&source=collection_link&creator=9549095"
+	},
+	"item": [
+		{
+			"name": "Criação de produto",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Nome do produto\",\n  \"type\": \"Tipo 1\",\n  \"value\": 10,\n  \"maturityDate\": \"2024-12-25T00:00:00.000Z\",\n  \"interestRate\": 10\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5042/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5042",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtendo lista de produto",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5042/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5042",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtendo produto por id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5042/api/products/{{id-do-produto}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5042",
+					"path": [
+						"api",
+						"products",
+						"{{id-do-produto}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editando produto",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"string Editaod\",\n  \"type\": \"Tipo Editado\",\n  \"value\": 100,\n  \"maturityDate\": \"2024-12-31T00:00:00.000Z\",\n  \"interestRate\": 100\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5042/api/products/{{id-do-produto}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5042",
+					"path": [
+						"api",
+						"products",
+						"{{id-do-produto}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Excluído produto",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5042/api/products/{{id-do-produto}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5042",
+					"path": [
+						"api",
+						"products",
+						"{{id-do-produto}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Comprando investimento",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"financialProductId\": \"{{id-do-produto}}\",\n  \"clientId\": 1,\n  \"quantity\": 1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5042/api/products/purchase",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5042",
+					"path": [
+						"api",
+						"products",
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vendendo investimento",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"financialProductId\": {{id-do-produto}},\n  \"clientId\": 1,\n  \"quantity\": 1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5042/api/products/sell",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5042",
+					"path": [
+						"api",
+						"products",
+						"sell"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Extrato dos investimento",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5042/api/extract/{{id-do-cliente}}?transactionType=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5042",
+					"path": [
+						"api",
+						"extract",
+						"{{id-do-cliente}}"
+					],
+					"query": [
+						{
+							"key": "transactionType",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

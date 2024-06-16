@@ -98,12 +98,12 @@ public sealed class FinancialProductSale : FinancialProductTransaction
     public static FinancialProductSale Create(FinancialProductDetail product, int clientId, int quantity,
         decimal purchasePrice)
     {
-        return new FinancialProductSale(product, clientId, quantity, purchasePrice, TransactionType.Sale);
+        return new FinancialProductSale(product, clientId, quantity, purchasePrice, TransactionType.Sell);
     }
 }
 
 public enum TransactionType
 {
     Buy = 1,
-    Sale
+    Sell
 }
