@@ -46,8 +46,8 @@
    ```shell
    cd jobs/SGPI.NotifyInvest.Job
    ```
-2. Localize o arquivo [appsettings.json](src/SGPI.Application/appsettings.json)
-   e [appsettings.Development.json](src/SGPI.Application/appsettings.Development.json)
+2. Localize o arquivo [appsettings.json](jobs/SGPI.NotifyInvest.Job/appsettings.json)
+   e [appsettings.Development.json](jobs/SGPI.NotifyInvest.Job/appsettings.Development.json)
 3. Preencha as variáveis de ambiente nos arquivos conforme o exemplo abaixo, completando as variáveis em branco:
     - Preencha ***Recipient*** com nome e e-mail do **administrador**.
        ```json
@@ -137,8 +137,8 @@
 # API de Gestão de Produto Financeiro
 
 Esta documentação fornece uma visão geral de como usar a API de Gestão de Produto Financeiro. Siga os passos abaixo para
-executar os endpoints disponíveis. Você pode utilizar **cURL** ou a [coleção](postman/SGPI.postman_collection.json) do *
-*Postman** para fazer as requisições.
+executar os endpoints disponíveis. Você pode utilizar **cURL** ou a [coleção](postman/SGPI.postman_collection.json) do 
+**Postman** para fazer as requisições.
 
 **Nota 1:**
 
