@@ -15,10 +15,14 @@ var builder = Host
     {
         var configuration = host.Configuration;
 
-        services.Configure<Recipient>(configuration.GetRequiredSection("Recipient"));
-        services.Configure<MainSendClientConfig>(configuration.GetRequiredSection(MainSendClientConfig.Key));
+        services
+            .Configure<Recipient>(configuration.GetRequiredSection("Recipient"));
+        services
+            .Configure<MainSendClientConfig>(configuration.GetRequiredSection(MainSendClientConfig.Key));
 
-        var smtpConfig = configuration.GetRequiredSection(MailSenderSmtpConfig.Key).Get<MailSenderSmtpConfig>();
+        var smtpConfig = configuration
+            .GetRequiredSection(MailSenderSmtpConfig.Key)
+            .Get<MailSenderSmtpConfig>();
         ArgumentNullException.ThrowIfNull(smtpConfig);
 
         services
@@ -76,6 +80,16 @@ var trigger = TriggerBuilder
     .WithDescription("Notify invest administrator trigger")
     .WithCronSchedule(everyDayAtMidday)
     .Build();
+
+// # NOTE: (Locally) Trigger the job to run now, and then every 1 minutes...
+// var trigger = TriggerBuilder.Create()
+//     .WithIdentity("TriggerNotifyInvestAdministrator", "Notify Invest")
+//     .WithDescription("Notify invest administrator trigger")
+//     .StartNow()
+//     .WithSimpleSchedule(x => x
+//         .WithIntervalInMinutes(1)
+//         .RepeatForever())
+//     .Build();
 
 await scheduler.ScheduleJob(notifyInvestAdministratorJob, trigger);
 await host.RunAsync();

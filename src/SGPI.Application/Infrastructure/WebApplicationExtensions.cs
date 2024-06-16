@@ -31,7 +31,7 @@ public static class WebApplicationExtensions
 
     public static WebApplication MapRedirectToDocs(this WebApplication app)
     {
-        app.Map("/", () => Results.Redirect($"/{Config.UrlDocs}"));
+        app.Map("/", () => Results.Redirect($"/{Config.RouteDocs}"));
         return app;
     }
 }

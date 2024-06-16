@@ -12,14 +12,18 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton(TimeProvider.System);
 builder.Services
     .AddEndpointsApiExplorer()
-    .AddNpgSql(builder.Configuration.GetConnectionString("AppDb"))
-    .AddMediatR(config => config.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()))
+    .AddNpgSql(builder
+        .Configuration
+        .GetConnectionString(Config.ConnectionStringAppDb))
+    .AddMediatR(config => config
+        .RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()))
     .AddSwaggerGen();
 
-
-builder.Services.AddScoped<IFinancialProductRepository, FinancialProductRepository>();
-builder.Services.AddSingleton<IProductCodeGenerator, ProductCodeGenerator>();
-builder.Services.AddScoped<IFinancialProductTransactionRepository, FinancialProductTransactionRepository>();
+builder
+    .Services
+    .AddScoped<IFinancialProductRepository, FinancialProductRepository>()
+    .AddSingleton<IProductCodeGenerator, ProductCodeGenerator>()
+    .AddScoped<IFinancialProductTransactionRepository, FinancialProductTransactionRepository>();
 
 var app = builder.Build();
 
@@ -32,7 +36,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(settings =>
     {
         settings.SwaggerEndpoint(Config.UrlSwagger, Config.NameApplication);
-        settings.RoutePrefix = Config.UrlDocs;
+        settings.RoutePrefix = Config.RouteDocs;
     });
     app.MapRedirectToDocs();
 }
