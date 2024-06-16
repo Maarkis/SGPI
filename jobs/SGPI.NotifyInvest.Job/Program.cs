@@ -51,7 +51,7 @@ var builder = Host
 # pragma warning disable CS0618
             .AddKeyedScoped<INotifier, NotifierUsingSenderClient>(Notifier.SenderClient)
             .AddKeyedScoped<INotifier, NotifierUsingFluent>(Notifier.FluentEmail)
-            .AddSingleton<IDatabase, Database>(x =>
+            .AddScoped<IDatabase, Database>(x =>
                 new Database(
                     connectionDatabase,
                     x.GetRequiredService<ILogger<Database>>()))
@@ -69,21 +69,13 @@ var notifyInvestAdministratorJob = JobBuilder
     .WithDescription("Notify invest administrator job")
     .Build();
 
-// var trigger = TriggerBuilder
-//     .Create()
-//     .WithIdentity("TriggerNotifyInvestAdministrator", "Notify Invest")
-//     .WithDescription("Notify invest administrator trigger")
-//     .WithCronSchedule("0 0/1 * * * ?")
-//     .Build();
-
-var trigger = TriggerBuilder.Create()
-    .WithIdentity("ScheduleIsFavoriteJob", "Tag")
-    .StartAt(DateTimeOffset.Now.AddSeconds(1))
-    .WithSimpleSchedule(x => x
-        .WithIntervalInMinutes(15)
-        .RepeatForever())
+const string everyDayAtMidday = "0 12 * * * ?";
+var trigger = TriggerBuilder
+    .Create()
+    .WithIdentity("TriggerNotifyInvestAdministrator", "Notify Invest")
+    .WithDescription("Notify invest administrator trigger")
+    .WithCronSchedule(everyDayAtMidday)
     .Build();
-
 
 await scheduler.ScheduleJob(notifyInvestAdministratorJob, trigger);
 await host.RunAsync();

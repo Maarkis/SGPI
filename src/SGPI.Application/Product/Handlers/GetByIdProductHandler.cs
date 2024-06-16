@@ -2,7 +2,6 @@ using MediatR;
 using SGPI.Application.Domain.Entities;
 using SGPI.Application.Infrastructure.Database;
 using SGPI.Application.Product.Commands;
-using SGPI.Domain.Entities;
 
 namespace SGPI.Application.Product.Handlers;
 

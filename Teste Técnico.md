@@ -22,14 +22,14 @@ Criar um serviço que permita o time de operação realizar manutenção nos pro
     - [x] Editar produto
     - [x] Deletar produto
 - [x] Disparo de e-mail diário para notificar os administradores a respeito dos produtos com vencimento próximo
-- [ ] Criar um serviço que permita o cliente comprar, vender e consultar seus investimentos.
+- [x] Criar um serviço que permita o cliente comprar, vender e consultar seus investimentos.
 
 ### Funcionalidades:
 
-- [ ] Negociar produto financeiro
-    - [ ] Compra
-    - [ ] Venda
-- [ ] Extrato do produto
+- [x] Negociar produto financeiro
+    - [x] Compra
+    - [x] Venda
+- [x] Extrato do produto
 
 ### O que esperamos:
 

@@ -5,7 +5,7 @@ using SGPI.Domain.Entities.Abstract;
 namespace SGPI.Application.Infrastructure.Database.Maps.Abstract;
 
 public abstract class AuditableEntityMap<TEntity> : EntityMap<TEntity>, IEntityTypeConfiguration<TEntity>
-    where TEntity : AuditableEntity, new()
+    where TEntity : AuditableEntity
 {
     public new void Configure(EntityTypeBuilder<TEntity> builder)
     {

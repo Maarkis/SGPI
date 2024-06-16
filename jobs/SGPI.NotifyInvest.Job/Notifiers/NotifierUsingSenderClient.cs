@@ -5,13 +5,13 @@ using SGPI.NotifyInvest.Job.Notifiers.Contract;
 
 namespace SGPI.NotifyInvest.Job.Notifiers;
 
-[Obsolete($"Use {nameof(NotifierUsingSenderClient)} instead")]
+[Obsolete($"Use {nameof(NotifierUsingFluent)} instead")]
 public class NotifierUsingSenderClient(
     ISenderClient senderClient,
     IOptions<MainSendClientConfig> mainSendClientConfig,
     IOptions<Recipient> recipients) : INotifier
 {
-    [Obsolete("Use {nameof(EmailNotifierUsingSenderClient)} instead")]
+    [Obsolete($"Use {nameof(NotifierUsingFluent)} instead")]
     public async Task SendNotificationForExpiringFinancialProducts(List<FinancialProduct> financialProducts,
         CancellationToken cancellationToken = default)
     {

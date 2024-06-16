@@ -5,21 +5,21 @@ using SGPI.Application.Infrastructure.Database.Maps.Abstract;
 
 namespace SGPI.Application.Infrastructure.Database.Maps;
 
-public class FinancialProductMap : AuditableEntityMap<FinancialProduct>, IEntityTypeConfiguration<FinancialProduct>
+public class FinancialProductDetailsMap : EntityMap<FinancialProductDetail>,
+    IEntityTypeConfiguration<FinancialProductDetail>
 {
-    public new void Configure(EntityTypeBuilder<FinancialProduct> builder)
+    public new void Configure(EntityTypeBuilder<FinancialProductDetail> builder)
     {
         base.Configure(builder);
 
         builder
-            .Property(x => x.Name)
-            .HasColumnName("name")
-            .HasMaxLength(100)
+            .Property(x => x.FinancialProductId)
+            .HasColumnName("financial_product_id")
             .IsRequired();
 
         builder
-            .Property(x => x.Type)
-            .HasColumnName("type")
+            .Property(x => x.Name)
+            .HasColumnName("name")
             .HasMaxLength(100)
             .IsRequired();
 
@@ -29,21 +29,11 @@ public class FinancialProductMap : AuditableEntityMap<FinancialProduct>, IEntity
             .IsRequired();
 
         builder
-            .Property(x => x.MaturityDate)
-            .HasColumnName("maturity_date")
-            .IsRequired();
-
-        builder
-            .Property(x => x.InterestRate)
-            .HasColumnName("interest_rate")
-            .IsRequired();
-
-        builder
             .Property(x => x.ProductCode)
             .HasColumnName("product_code")
             .HasMaxLength(30)
             .IsRequired();
 
-        builder.ToTable("financial_products");
+        builder.ToTable("financial_product_details");
     }
 }
