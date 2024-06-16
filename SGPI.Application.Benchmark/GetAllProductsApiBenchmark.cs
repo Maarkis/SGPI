@@ -3,19 +3,7 @@ using BenchmarkDotNet.Attributes;
 
 namespace SGPI.Application.Benchmark;
 
-public record Product(
-    string Name,
-    string Type,
-    int Value,
-    string MaturityDate,
-    int InterestRate,
-    string ProductCode,
-    string CreatedAt,
-    object UpdateAt,
-    bool Enabled,
-    bool IsDisabled,
-    string Id
-);
+public record Product(string Id);
 
 [HtmlExporter]
 public class GetAllProductsApiBenchmark

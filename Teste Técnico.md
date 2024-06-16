@@ -1,4 +1,4 @@
-# Tema: Sistema de Gestão de Portfólio de Investimentos
+# Sistema de Gestão de Portfólio de Investimentos
 
 ### Descrição:
 
@@ -35,5 +35,5 @@ Criar um serviço que permita o time de operação realizar manutenção nos pro
 
 - [ ] As funcionalidades de consulta de produtos disponíveis e extrato devem suportar um grande volume de requisições e
   manter baixo tempo de resposta, abaixo de 100ms
-- [ ] Documentação de como **executar** a aplicação
+- [x] Documentação de como **executar** a aplicação
 - [ ] Documentação de como **utilizar** a aplicação
