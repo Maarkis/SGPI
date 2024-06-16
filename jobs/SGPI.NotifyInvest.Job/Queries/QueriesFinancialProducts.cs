@@ -15,12 +15,8 @@ public class QueriesFinancialProducts(IDatabase database) : IQueriesFinancialPro
         var connection = await database.ConnectAsync();
         const string query = """
                              SELECT 
-                                 "id",
                                  "name",
-                                 "type",
-                                 "value",
                                  "maturity_date" as "maturityDate",
-                                 "interest_rate" as "interestRate",
                                  "product_code" as "productCode"
                              FROM 
                                  public.financial_products

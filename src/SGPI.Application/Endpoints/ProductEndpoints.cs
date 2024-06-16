@@ -19,7 +19,9 @@ public class ProductEndpoints : EndpointGroupBase
             .MapGet(GetProductList)
             .MapGet(GetProduct, "/{id:guid}")
             .MapPut(UpdateProduct, "/{id:guid}")
-            .MapDelete(DeleteProduct, "/{id:guid}");
+            .MapDelete(DeleteProduct, "/{id:guid}")
+            .MapPost(PurchaseProduct, "/purchase")
+            .MapPost(SaleProduct, "/sell");
     }
 
     private static async Task<IResult> GetProductList([FromServices] ISender sender)
@@ -63,5 +65,17 @@ public class ProductEndpoints : EndpointGroupBase
 
         await sender.Send(new DeleteProductCommand(id));
         return Results.NoContent();
+    }
+
+    private static async Task<IResult> PurchaseProduct([FromServices] ISender sender, ProductPurchaseCommand command)
+    {
+        await sender.Send(command);
+        return Results.Accepted();
+    }
+
+    private static async Task<IResult> SaleProduct([FromServices] ISender sender, ProductSellCommand command)
+    {
+        await sender.Send(command);
+        return Results.Accepted();
     }
 }

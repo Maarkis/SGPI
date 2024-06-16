@@ -1,22 +1,32 @@
 using Microsoft.EntityFrameworkCore;
 using SGPI.Application.Domain.Entities;
-using SGPI.Application.Infrastructure.Database;
+using SGPI.Application.Infrastructure.Database.Contracts;
 
-namespace SGPI.Application.Infrastructure;
+namespace SGPI.Application.Infrastructure.Database;
 
-public class FinancialProductRepository(AppDatabaseContext context) : IFinancialProductRepository
+public interface IFinancialProductRepository :
+    IAddRepository<FinancialProduct>,
+    IGetByIdRepository<FinancialProduct>,
+    IGetAllRepository<FinancialProduct>,
+    IUpdateRepository<FinancialProduct>,
+    IDeleteRepository,
+    ISaveRepository;
+
+public class FinancialProductRepository(IAppDatabaseContext context) : IFinancialProductRepository
 {
     private readonly DbSet<FinancialProduct> _dbSet = context.FinancialProducts;
 
     public async Task<Guid> AddAsync(FinancialProduct entity, CancellationToken cancellationToken = default)
     {
-        await _dbSet.AddAsync(entity, cancellationToken);
+        await _dbSet
+            .AddAsync(entity, cancellationToken);
         return entity.Id;
     }
 
     public Task<FinancialProduct?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
     {
-        return _dbSet.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+        return _dbSet
+            .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
     }
 
     public async Task SaveAsync(CancellationToken cancellationToken = default)
@@ -38,6 +48,8 @@ public class FinancialProductRepository(AppDatabaseContext context) : IFinancial
 
     public async Task RemoveAsync(Guid id, CancellationToken cancellationToken = default)
     {
-        await _dbSet.Where(entity => entity.Id == id).ExecuteDeleteAsync(cancellationToken);
+        await _dbSet
+            .Where(entity => entity.Id == id)
+            .ExecuteDeleteAsync(cancellationToken);
     }
 }

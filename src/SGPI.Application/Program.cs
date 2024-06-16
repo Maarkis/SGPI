@@ -19,6 +19,7 @@ builder.Services
 
 builder.Services.AddScoped<IFinancialProductRepository, FinancialProductRepository>();
 builder.Services.AddSingleton<IProductCodeGenerator, ProductCodeGenerator>();
+builder.Services.AddScoped<IFinancialProductTransactionRepository, FinancialProductTransactionRepository>();
 
 var app = builder.Build();
 
