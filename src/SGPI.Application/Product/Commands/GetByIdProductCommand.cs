@@ -1,6 +1,6 @@
 using MediatR;
-using SGPI.Application.Domain.Entities;
+using SGPI.Application.Endpoints;
 
 namespace SGPI.Application.Product.Commands;
 
-public record GetByIdProductCommand(Guid id) : IRequest<FinancialProduct?>;
+public record GetByIdProductCommand(Guid id) : IRequest<FinancialProductResponse?>;

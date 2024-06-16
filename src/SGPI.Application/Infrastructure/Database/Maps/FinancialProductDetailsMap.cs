@@ -34,6 +34,10 @@ public class FinancialProductDetailsMap : EntityMap<FinancialProductDetail>,
             .HasMaxLength(30)
             .IsRequired();
 
+        builder
+            .HasIndex(index => index.ProductCode);
+            
+
         builder.ToTable("financial_product_details");
     }
 }

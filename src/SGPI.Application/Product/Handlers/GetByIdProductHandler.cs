@@ -1,15 +1,22 @@
 using MediatR;
-using SGPI.Application.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+using SGPI.Application.Endpoints;
 using SGPI.Application.Infrastructure.Database;
 using SGPI.Application.Product.Commands;
 
 namespace SGPI.Application.Product.Handlers;
 
-public class GetByIdProductHandler(IFinancialProductRepository repository)
-    : IRequestHandler<GetByIdProductCommand, FinancialProduct?>
+public class GetByIdProductHandler(IAppDatabaseContext context)
+    : IRequestHandler<GetByIdProductCommand, FinancialProductResponse?>
 {
-    public Task<FinancialProduct?> Handle(GetByIdProductCommand request, CancellationToken cancellationToken)
+    public async Task<FinancialProductResponse?> Handle(GetByIdProductCommand request,
+        CancellationToken cancellationToken)
     {
-        return repository.GetByIdAsync(request.id, cancellationToken);
+        return await context.FinancialProducts
+            .Where(x => x.Id == request.id)
+            .Select(x =>
+                new FinancialProductResponse(
+                    x.Id, x.Name, x.Type, x.Value, x.MaturityDate, x.InterestRate, x.ProductCode))
+            .FirstOrDefaultAsync(cancellationToken);
     }
 }

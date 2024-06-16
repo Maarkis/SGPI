@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SGPI.Application.Domain.Entities;
+using SGPI.Application.Domain.Enum;
 using SGPI.Application.Infrastructure.Database.Maps.Abstract;
 
 namespace SGPI.Application.Infrastructure.Database.Maps;
@@ -45,7 +46,7 @@ public class FinancialProductTransactionMap : AuditableEntityMap<FinancialProduc
         builder
             .HasDiscriminator<TransactionType>("TransactionType")
             .HasValue<FinancialProductPurchase>(TransactionType.Buy)
-            .HasValue<FinancialProductSale>(TransactionType.Sale);
+            .HasValue<FinancialProductSale>(TransactionType.Sell);
 
 
         builder.ToTable("financial_product_transactions");

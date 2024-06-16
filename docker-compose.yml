@@ -9,7 +9,7 @@
     environment:
       ASPNETCORE_ENVIRONMENT: Production
       ASPNETCORE_URLS: http://+80
-      ConnectionStrings__AppDb:
+      ConnectionStrings__AppDb: "Server=sgpi.database;Username=admin;Database=postgres;Port=5432;Password=123;LogParameters=true;"
     restart: always
     networks:
       - sgpi-network
@@ -26,16 +26,12 @@
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: 123
       POSTGRES_DB: postgres
-    volumes:
-      - ./database/postgresql/data:/var/lib/postgresql/data
     networks:
       - sgpi-network
   
   sgpi.pgadmin:
     image: dpage/pgadmin4
     container_name: sgpi.pgadmin
-    volumes:
-      - ./database/pgadmin:/pgadmin4/servers.json
     ports:
       - "8082:8082"
     restart: always
@@ -54,19 +50,19 @@
       context: .
       dockerfile: jobs/SGPI.NotifyInvest.Job/Dockerfile
     environment:
-      ConnectionStrings__AppDb:
-      MailSendClient__Url: https://api.mailersend.com
-      MailSendClient__Token:
-      MailSendClient__Name: SGPI
-      MailSendClient__Email:
+      ConnectionStrings__AppDb: "Server=sgpi.database;Username=admin;Database=postgres;Port=5432;Password=123;LogParameters=true;"
+      MailSendClient__Url: "https://api.mailersend.com"
+      MailSendClient__Token: "mlsn.ecd96965c110c8ea435255e231b1761e5d4ff4a611ec684be29e386b237707bd"
+      MailSendClient__Name: "SGPI"
+      MailSendClient__Email: "info@trial-pq3enl60p37l2vwr.mlsender.net"
       MailSenderSMTP__Host: "smtp.mailersend.net"
       MailSenderSMTP__Port: 587
-      MailSenderSMTP__Username:
-      MailSenderSMTP__Password:
-      MailSenderSMTP__Name: SGPI
-      MailSenderSMTP__Email:
-      Recipient__Name:
-      Recipient__Email:
+      MailSenderSMTP__Username: "MS_CKTN1Q@trial-pq3enl60p37l2vwr.mlsender.net"
+      MailSenderSMTP__Password: "MIK64CyCX3hkejW3"
+      MailSenderSMTP__Name: "SGPI"
+      MailSenderSMTP__Email: "info@trial-pq3enl60p37l2vwr.mlsender.net"
+      Recipient__Name: "Jean Markis"
+      Recipient__Email: "jeanmarkis85@gmail.com"
     restart: always
     depends_on:
       - sgpi.database

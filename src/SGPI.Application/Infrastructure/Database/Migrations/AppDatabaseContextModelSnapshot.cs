@@ -73,6 +73,8 @@ namespace SGPI.Application.Infrastructure.Database.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ProductCode");
+
                     b.ToTable("financial_products", (string)null);
                 });
 
@@ -104,6 +106,8 @@ namespace SGPI.Application.Infrastructure.Database.Migrations
                         .HasColumnName("value");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ProductCode");
 
                     b.ToTable("financial_product_details", (string)null);
                 });

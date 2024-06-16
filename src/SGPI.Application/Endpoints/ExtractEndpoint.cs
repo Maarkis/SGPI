@@ -1,6 +1,6 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SGPI.Application.Domain.Entities;
+using SGPI.Application.Domain.Enum;
 using SGPI.Application.Infrastructure;
 using SGPI.Application.Product.Commands;
 
