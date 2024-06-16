@@ -8,7 +8,7 @@ namespace SGPI.NotifyInvest.Job.Notifiers;
 [Obsolete($"Use {nameof(NotifierUsingSenderClient)} instead")]
 public class NotifierUsingSenderClient(
     ISenderClient senderClient,
-    IOptions< MainSendClientConfig> mainSendClientConfig,
+    IOptions<MainSendClientConfig> mainSendClientConfig,
     IOptions<Recipient> recipients) : INotifier
 {
     [Obsolete("Use {nameof(EmailNotifierUsingSenderClient)} instead")]
@@ -67,10 +67,10 @@ public class NotifierUsingSenderClient(
 
         var emailConfig = mainSendClientConfig.Value;
         ArgumentNullException.ThrowIfNull(emailConfig);
-        
+
         var to = recipients.Value;
         ArgumentNullException.ThrowIfNull(recipients);
-        
+
         var email = new EmailBuilder()
             .From(emailConfig.Name, emailConfig.Email)
             .To(to.Name, to.Email)

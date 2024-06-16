@@ -3,22 +3,21 @@ using Npgsql;
 
 namespace SGPI.NotifyInvest.Job;
 
-
 public interface IDatabase : IAsyncDisposable
 {
     Task<IDbConnection> ConnectAsync(CancellationToken cancellationToken = default);
     Task CloseAsync(CancellationToken cancellationToken = default);
 }
 
-public sealed class Database(string connectionString, ILogger<Database> logger): IDatabase
+public sealed class Database(string connectionString, ILogger<Database> logger) : IDatabase
 {
     private NpgsqlConnection? _connection;
 
     public async Task<IDbConnection> ConnectAsync(CancellationToken cancellationToken = default)
     {
-        if (_connection?.State is ConnectionState.Open) 
+        if (_connection?.State is ConnectionState.Open)
             return _connection;
-        
+
         _connection = new NpgsqlConnection(connectionString);
         try
         {
@@ -36,7 +35,6 @@ public sealed class Database(string connectionString, ILogger<Database> logger):
     public async Task CloseAsync(CancellationToken cancellationToken = default)
     {
         if (_connection is { State: not ConnectionState.Closed })
-        {
             try
             {
                 await _connection.CloseAsync();
@@ -52,9 +50,8 @@ public sealed class Database(string connectionString, ILogger<Database> logger):
                 await _connection.DisposeAsync();
                 _connection = null;
             }
-        }
     }
-    
+
     public async ValueTask DisposeAsync()
     {
         await CloseAsync();

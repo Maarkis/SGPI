@@ -4,13 +4,14 @@ public record Sender(string Name, string Email);
 
 public class Recipient()
 {
-    public string Name { get; init; } = string.Empty;
-    public string Email { get; init; } = string.Empty;
-    public Recipient(string name, string email): this() 
+    public Recipient(string name, string email) : this()
     {
         Name = name;
         Email = email;
     }
+
+    public string Name { get; init; } = string.Empty;
+    public string Email { get; init; } = string.Empty;
 }
 
 public class Email
@@ -24,11 +25,11 @@ public class Email
 
 public class EmailBuilder
 {
+    private readonly Dictionary<string, string> _personalization = new();
+    private readonly List<Recipient> _recipients = Enumerable.Empty<Recipient>().ToList();
+    private string _html = string.Empty;
     private Sender? _sender;
     private string _subject = string.Empty;
-    private string _html = string.Empty;
-    private readonly List<Recipient> _recipients = Enumerable.Empty<Recipient>().ToList();
-    private readonly Dictionary<string, string> _personalization = new();
 
     public EmailBuilder From(string name, string email)
     {
@@ -41,7 +42,7 @@ public class EmailBuilder
         _recipients.Add(new Recipient(name, email));
         return this;
     }
-    
+
     public EmailBuilder To(Recipient recipient)
     {
         _recipients.Add(recipient);

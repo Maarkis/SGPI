@@ -1,6 +1,6 @@
 namespace SGPI.NotifyInvest.Job.Models;
 
-public record  FinancialProduct
+public record FinancialProduct
 {
     public required Guid Id { get; init; }
     public required string Name { get; init; }

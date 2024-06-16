@@ -13,20 +13,20 @@ public class ProductClient
         _httpClient.DefaultRequestHeaders.Accept.Clear();
         _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
     }
-    
+
     public async Task<HttpResponseMessage> GetAllProducts()
     {
         var response = await _httpClient.GetAsync("api/products");
         response.EnsureSuccessStatusCode();
-        
-        return response; 
+
+        return response;
     }
 
     public async Task<HttpResponseMessage> GetProductById(string id)
     {
         var response = await _httpClient.GetAsync($"api/products/{id}");
         response.EnsureSuccessStatusCode();
-        
-        return response; 
+
+        return response;
     }
 }

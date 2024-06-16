@@ -12,7 +12,7 @@ public class ProductCodeGenerator : IProductCodeGenerator
         ArgumentException.ThrowIfNullOrEmpty(name, nameof(name));
         ArgumentException.ThrowIfNullOrEmpty(type, nameof(type));
         ArgumentNullException.ThrowIfNull(date, nameof(date));
-        
+
         var slugProduct = name
             .Trim()
             .Split(' ')
@@ -23,7 +23,7 @@ public class ProductCodeGenerator : IProductCodeGenerator
             .Split(' ')
             .Aggregate(string.Empty, (current, word) => current + word[0])
             .ToUpperInvariant();
-        
+
         var formattedDate = date.ToString("yyyyMMdd");
         return $"{slugProduct}{slugType}{formattedDate}";
     }

@@ -7,13 +7,13 @@ public static class NpgSqlConfigurator
     public static IServiceCollection AddNpgSql(this IServiceCollection services, string? connectionString)
     {
         ArgumentException.ThrowIfNullOrEmpty(connectionString, nameof(connectionString));
-        
+
         services.UseNpgSql(connectionString);
         services.AddHealthChecksNpgSql(connectionString);
-        
-        return services; 
+
+        return services;
     }
-    
+
     private static void UseNpgSql(this IServiceCollection services, string connectionString)
     {
         services.AddDbContext<IAppDatabaseContext, AppDatabaseContext>((sp, options) =>
@@ -23,7 +23,7 @@ public static class NpgSqlConfigurator
             options.UseNpgsql(connectionString);
         });
     }
-    
+
     private static void AddHealthChecksNpgSql(this IServiceCollection services, string connectionString)
     {
         services

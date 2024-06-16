@@ -1,4 +1,3 @@
-using FluentEmail.Core;
 using Quartz;
 using SGPI.NotifyInvest.Job.Notifiers.Contract;
 using SGPI.NotifyInvest.Job.Queries;
@@ -25,7 +24,7 @@ public class NotifyInvestAdministrator(
             logger.LogInformation("[{time}] - No products found", DateTime.Now);
             return;
         }
-        
+
         logger.LogInformation("[{time}] - Products found: {count}", DateTime.Now, financialProducts.Count);
         try
         {
@@ -39,5 +38,3 @@ public class NotifyInvestAdministrator(
         }
     }
 }
-
-

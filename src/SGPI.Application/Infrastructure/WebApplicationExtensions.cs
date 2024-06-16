@@ -4,11 +4,13 @@ namespace SGPI.Application.Infrastructure;
 
 public static class WebApplicationExtensions
 {
-    public static RouteGroupBuilder MapGroup(this WebApplication app, EndpointGroupBase group) =>
-        app
+    public static RouteGroupBuilder MapGroup(this WebApplication app, EndpointGroupBase group)
+    {
+        return app
             .MapGroup($"/api/{group.Name.ToLowerInvariant()}")
             .WithTags(group.Tags)
             .WithOpenApi();
+    }
 
 
     public static WebApplication MapEndpoints(this WebApplication app)
@@ -21,16 +23,12 @@ public static class WebApplicationExtensions
             .Where(t => t.IsSubclassOf(endpointGroupType));
 
         foreach (var type in endpointGroupTypes)
-        {
             if (Activator.CreateInstance(type) is EndpointGroupBase instance)
-            {
                 instance.Map(app);
-            }
-        }
 
         return app;
     }
-    
+
     public static WebApplication MapRedirectToDocs(this WebApplication app)
     {
         app.Map("/", () => Results.Redirect($"/{Config.UrlDocs}"));

@@ -17,22 +17,19 @@ public record Product(
     string Id
 );
 
-
-
 [HtmlExporter]
 public class GetAllProductsApiBenchmark
 {
+    private readonly ProductClient _productClient = new();
     [Params(100, 200)] public int IterationCount;
 
-    private readonly ProductClient _productClient = new();
-    
     [Benchmark]
     public async Task GetAllProductsAsync()
     {
-        for (var i = 0; i < IterationCount; i++) 
+        for (var i = 0; i < IterationCount; i++)
             await _productClient.GetAllProducts();
     }
-    
+
     [Benchmark]
     public async Task GetProductByIdAsync()
     {
@@ -52,4 +49,3 @@ public class GetAllProductsApiBenchmark
         return products.Select(x => x.Id).ToArray();
     }
 }
-

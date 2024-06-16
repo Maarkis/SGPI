@@ -4,7 +4,8 @@ namespace SGPI.Application.Infrastructure;
 
 public static class EndpointRouteBuilderExtensions
 {
-    public static IEndpointRouteBuilder MapGet(this IEndpointRouteBuilder builder, Delegate handler, [StringSyntax("Route")] string pattern = "")
+    public static IEndpointRouteBuilder MapGet(this IEndpointRouteBuilder builder, Delegate handler,
+        [StringSyntax("Route")] string pattern = "")
     {
         builder
             .MapGet(pattern, handler)
@@ -13,7 +14,8 @@ public static class EndpointRouteBuilderExtensions
         return builder;
     }
 
-    public static IEndpointRouteBuilder MapPost(this IEndpointRouteBuilder builder, Delegate handler, [StringSyntax("Route")] string pattern = "")
+    public static IEndpointRouteBuilder MapPost(this IEndpointRouteBuilder builder, Delegate handler,
+        [StringSyntax("Route")] string pattern = "")
     {
         builder
             .MapPost(pattern, handler)
@@ -22,7 +24,8 @@ public static class EndpointRouteBuilderExtensions
         return builder;
     }
 
-    public static IEndpointRouteBuilder MapPut(this IEndpointRouteBuilder builder, Delegate handler, [StringSyntax("Route")] string pattern)
+    public static IEndpointRouteBuilder MapPut(this IEndpointRouteBuilder builder, Delegate handler,
+        [StringSyntax("Route")] string pattern)
     {
         builder
             .MapPut(pattern, handler)
@@ -31,9 +34,9 @@ public static class EndpointRouteBuilderExtensions
         return builder;
     }
 
-    public static IEndpointRouteBuilder MapDelete(this IEndpointRouteBuilder builder, Delegate handler, [StringSyntax("Route")] string pattern)
+    public static IEndpointRouteBuilder MapDelete(this IEndpointRouteBuilder builder, Delegate handler,
+        [StringSyntax("Route")] string pattern)
     {
-
         builder
             .MapDelete(pattern, handler)
             .WithName(handler.Method.Name);

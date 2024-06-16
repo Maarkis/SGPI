@@ -1,33 +1,34 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using SGPI.Application.Domain.Entities;
 using SGPI.Application.Infrastructure.Database.Maps.Abstract;
 using SGPI.Domain.Entities;
 
 namespace SGPI.Application.Infrastructure.Database.Maps;
 
-public class FinancialProductMap : AuditableEntityMap<FinancialProduct>,  IEntityTypeConfiguration<FinancialProduct> 
+public class FinancialProductMap : AuditableEntityMap<FinancialProduct>, IEntityTypeConfiguration<FinancialProduct>
 {
     public new void Configure(EntityTypeBuilder<FinancialProduct> builder)
     {
         base.Configure(builder);
-        
+
         builder
             .Property(x => x.Name)
             .HasColumnName("name")
             .HasMaxLength(100)
             .IsRequired();
-        
+
         builder
             .Property(x => x.Type)
             .HasColumnName("type")
             .HasMaxLength(100)
             .IsRequired();
-        
+
         builder
             .Property(x => x.Value)
             .HasColumnName("value")
             .IsRequired();
-        
+
         builder
             .Property(x => x.MaturityDate)
             .HasColumnName("maturity_date")
@@ -37,13 +38,13 @@ public class FinancialProductMap : AuditableEntityMap<FinancialProduct>,  IEntit
             .Property(x => x.InterestRate)
             .HasColumnName("interest_rate")
             .IsRequired();
-        
+
         builder
             .Property(x => x.ProductCode)
             .HasColumnName("product_code")
             .HasMaxLength(30)
             .IsRequired();
-        
+
         builder.ToTable("financial_products");
     }
 }

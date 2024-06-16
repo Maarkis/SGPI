@@ -1,6 +1,6 @@
 using SGPI.Domain.Entities.Abstract;
 
-namespace SGPI.Domain.Entities;
+namespace SGPI.Application.Domain.Entities;
 
 public class FinancialProduct : AuditableEntity
 {
@@ -10,8 +10,8 @@ public class FinancialProduct : AuditableEntity
     public DateTime MaturityDate { get; private set; }
     public double InterestRate { get; private set; }
     public string ProductCode { get; private set; } = default!;
-    
-    
+
+
     public void Edit(string? name, string? type, decimal? value, DateTime? maturityDate, double? interestRate)
     {
         Name = name ?? Name;
@@ -20,17 +20,18 @@ public class FinancialProduct : AuditableEntity
         MaturityDate = maturityDate ?? MaturityDate;
         InterestRate = interestRate ?? InterestRate;
     }
-    
-    public static FinancialProduct Create(string name, string type, decimal value, DateTime maturityDate, double interestRate, string productCode)
+
+    public static FinancialProduct Create(string name, string type, decimal value, DateTime maturityDate,
+        double interestRate, string productCode)
     {
         return new FinancialProduct
         {
             Id = Guid.NewGuid(),
             Name = name,
             Type = type,
-            Value = value, 
-            MaturityDate = maturityDate, 
-            InterestRate = interestRate, 
+            Value = value,
+            MaturityDate = maturityDate,
+            InterestRate = interestRate,
             ProductCode = productCode
         };
     }

@@ -12,7 +12,7 @@ public class MailSenderClient(HttpClient client) : ISenderClient
 {
     public async Task SendEmail(Email email, CancellationToken cancellationToken = default)
     {
-        var response = await client.PostAsJsonAsync("/v1/email", email, cancellationToken: cancellationToken);
+        var response = await client.PostAsJsonAsync("/v1/email", email, cancellationToken);
         response.EnsureSuccessStatusCode();
     }
 }

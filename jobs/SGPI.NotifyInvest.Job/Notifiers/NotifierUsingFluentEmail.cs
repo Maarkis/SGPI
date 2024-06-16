@@ -12,7 +12,7 @@ public class NotifierUsingFluent(IFluentEmail fluentEmail, IOptions<Recipient> r
     {
         var to = recipients.Value;
         ArgumentNullException.ThrowIfNull(recipients);
-        
+
         var folder = Path.Combine(Directory.GetCurrentDirectory(), "Templates", "NotificationTemplate.cshtml");
         await fluentEmail
             .To(to.Email, to.Name)

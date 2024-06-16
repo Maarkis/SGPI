@@ -11,8 +11,8 @@
       - sgpi-network
     depends_on:
       - sgpi.database
-      
-      
+  
+  
   sgpi.database:
     image: postgres
     container_name: sgpi.database
@@ -27,7 +27,7 @@
       - ./database/postgresql/data:/var/lib/postgresql/data
     networks:
       - sgpi-network
-    
+  
   sgpi.pgadmin:
     image: dpage/pgadmin4
     container_name: sgpi.pgadmin
@@ -44,16 +44,16 @@
       - sgpi.database
     networks:
       - sgpi-network
-      
+  
   sgpi.notifyinvest.job:
-      image: sgpi.notifyinvest.job
-      build:
-        context: .
-        dockerfile: jobs/SGPI.NotifyInvest.Job/Dockerfile
-      depends_on:
-        - sgpi.database        
-      networks:
-        - sgpi-network
+    image: sgpi.notifyinvest.job
+    build:
+      context: .
+      dockerfile: jobs/SGPI.NotifyInvest.Job/Dockerfile
+    depends_on:
+      - sgpi.database
+    networks:
+      - sgpi-network
 
 networks:
   sgpi-network:
