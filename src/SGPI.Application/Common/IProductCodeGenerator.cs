@@ -13,18 +13,18 @@ public class ProductCodeGenerator : IProductCodeGenerator
         ArgumentException.ThrowIfNullOrEmpty(type, nameof(type));
         ArgumentNullException.ThrowIfNull(date, nameof(date));
 
-        var slugProduct = name
+        var nameInitials = name
             .Trim()
             .Split(' ')
             .Aggregate(string.Empty, (current, word) => current + word[0])
             .ToUpperInvariant();
-        var slugType = type
+        var typeInitials = type
             .Trim()
             .Split(' ')
             .Aggregate(string.Empty, (current, word) => current + word[0])
             .ToUpperInvariant();
 
         var formattedDate = date.ToString("yyyyMMdd");
-        return $"{slugProduct}{slugType}{formattedDate}";
+        return $"{nameInitials}{typeInitials}{formattedDate}";
     }
 }
