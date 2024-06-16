@@ -6,7 +6,7 @@ namespace SGPI.NotifyInvest.Job;
 public interface IDatabase : IAsyncDisposable
 {
     Task<IDbConnection> ConnectAsync(CancellationToken cancellationToken = default);
-    Task CloseAsync(CancellationToken cancellationToken = default);
+    Task CloseAsync();
 }
 
 public sealed class Database(string connectionString, ILogger<Database> logger) : IDatabase
@@ -32,7 +32,7 @@ public sealed class Database(string connectionString, ILogger<Database> logger) 
         return _connection;
     }
 
-    public async Task CloseAsync(CancellationToken cancellationToken = default)
+    public async Task CloseAsync()
     {
         if (_connection is { State: not ConnectionState.Closed })
             try
