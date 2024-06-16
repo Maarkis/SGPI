@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SGPI.Application.Domain.Entities;
 using SGPI.Application.Infrastructure.Database;
-using SGPI.Domain.Entities;
 
 namespace SGPI.Application.Infrastructure;
 
@@ -25,11 +24,11 @@ public class FinancialProductRepository(AppDatabaseContext context) : IFinancial
         await context.SaveChangesAsync(cancellationToken);
     }
 
-    public Task<FinancialProduct[]> GetAllAsync(CancellationToken cancellationToken = default)
+    public async Task<IEnumerable<FinancialProduct>> GetAllAsync(CancellationToken cancellationToken = default)
     {
-        return _dbSet
+        return await _dbSet
             .AsNoTracking()
-            .ToArrayAsync(cancellationToken);
+            .ToListAsync(cancellationToken);
     }
 
     public void UpdateAsync(FinancialProduct entity)

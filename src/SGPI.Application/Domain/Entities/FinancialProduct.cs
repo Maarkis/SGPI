@@ -5,13 +5,6 @@ namespace SGPI.Application.Domain.Entities;
 
 public class FinancialProduct : AuditableEntity
 {
-    public string Name { get; private set; }
-    public string Type { get; private set; }
-    public decimal Value { get; private set; }
-    public DateTime MaturityDate { get; private set; }
-    public double InterestRate { get; private set; }
-    public string ProductCode { get; private set; }
-
     private FinancialProduct(string name, string type, decimal value, DateTime maturityDate,
         double interestRate, string productCode)
     {
@@ -22,6 +15,13 @@ public class FinancialProduct : AuditableEntity
         InterestRate = interestRate;
         ProductCode = productCode;
     }
+
+    public string Name { get; private set; }
+    public string Type { get; private set; }
+    public decimal Value { get; private set; }
+    public DateTime MaturityDate { get; private set; }
+    public double InterestRate { get; private set; }
+    public string ProductCode { get; private set; }
 
     public void Edit(string? name, string? type, decimal? value, DateTime? maturityDate, double? interestRate)
     {

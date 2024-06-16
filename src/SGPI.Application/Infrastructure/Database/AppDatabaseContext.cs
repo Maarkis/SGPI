@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using SGPI.Application.Domain.Entities;
-using SGPI.Domain.Entities;
 
 namespace SGPI.Application.Infrastructure.Database;
 
