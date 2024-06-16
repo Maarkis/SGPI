@@ -15,7 +15,7 @@ public class NotifierUsingFluent(IFluentEmail fluentEmail, IOptions<Recipient> r
     {
         var to = recipients.Value;
         ArgumentNullException.ThrowIfNull(recipients);
-        
+
         await fluentEmail
             .To(to.Email, to.Name)
             .Subject("Produtos expirando")
