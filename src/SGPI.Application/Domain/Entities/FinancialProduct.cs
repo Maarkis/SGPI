@@ -8,7 +8,7 @@ public class FinancialProduct : AuditableEntity
     private FinancialProduct(string name, string type, decimal value, DateTime maturityDate,
         double interestRate, string productCode)
     {
-        Name = name;
+        Name = name; // TODO: Transform in value object...
         Type = type;
         Value = value;
         MaturityDate = maturityDate;

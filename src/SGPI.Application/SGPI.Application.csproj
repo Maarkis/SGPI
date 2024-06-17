@@ -31,6 +31,11 @@
     <ItemGroup>
         <Folder Include="Domain\"/>
         <Folder Include="Infrastructure\Database\Migrations\"/>
+        <Folder Include="Infrastructure\Extensions\"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Remove="Infrastructure\Extensions\PaginatedList.cs"/>
     </ItemGroup>
 
 </Project>

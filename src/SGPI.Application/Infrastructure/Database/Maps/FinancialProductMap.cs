@@ -43,7 +43,7 @@ public class FinancialProductMap : AuditableEntityMap<FinancialProduct>, IEntity
             .HasColumnName("product_code")
             .HasMaxLength(30)
             .IsRequired();
-        
+
         builder
             .HasIndex(index => index.ProductCode);
 

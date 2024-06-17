@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGPI.Application.Benchmark"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGPI.NotifyInvest.Job", "jobs\SGPI.NotifyInvest.Job\SGPI.NotifyInvest.Job.csproj", "{12CA9E33-AA73-46D2-8C95-FF40463708D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGPI.Application.UnitTest", "test\SGPI.Application.UnitTest\SGPI.Application.UnitTest.csproj", "{FB716A50-B0F0-44B8-8D6F-A96DD3D63C45}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,5 +33,11 @@ Global
 		{12CA9E33-AA73-46D2-8C95-FF40463708D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12CA9E33-AA73-46D2-8C95-FF40463708D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12CA9E33-AA73-46D2-8C95-FF40463708D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB716A50-B0F0-44B8-8D6F-A96DD3D63C45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB716A50-B0F0-44B8-8D6F-A96DD3D63C45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB716A50-B0F0-44B8-8D6F-A96DD3D63C45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB716A50-B0F0-44B8-8D6F-A96DD3D63C45}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 EndGlobal

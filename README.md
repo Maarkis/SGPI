@@ -134,7 +134,14 @@
    docker ps
    ```
 
-# API de Gestão de Produto Financeiro
+## Teste
+
+Para executar testes unitário, na raiz do projeto, execute o comando:
+```shell
+dotnet test
+```
+
+### API de Gestão de Produto Financeiro
 
 Esta documentação fornece uma visão geral de como usar a API de Gestão de Produto Financeiro. Siga os passos abaixo para
 executar os endpoints disponíveis. Você pode utilizar **cURL** ou a [coleção](postman/SGPI.postman_collection.json) do
@@ -272,3 +279,4 @@ Certifique-se de substituir os placeholders (`{{id-do-produto}}`, `{{id-do-clien
 - https://code-maze.com/benchmarking-csharp-and-asp-net-core-projects/
 - https://github.com/jasontaylordev/CleanArchitecture/blob/main/src/Infrastructure/Data/Interceptors/AuditableEntityInterceptor.cs#L36C5-L36C51
 - https://crontab.guru/
+- [Package Cron Expression Descriptor](https://github.com/bradymholt/cron-expression-descriptor)

@@ -36,7 +36,7 @@ public class FinancialProductDetailsMap : EntityMap<FinancialProductDetail>,
 
         builder
             .HasIndex(index => index.ProductCode);
-            
+
 
         builder.ToTable("financial_product_details");
     }

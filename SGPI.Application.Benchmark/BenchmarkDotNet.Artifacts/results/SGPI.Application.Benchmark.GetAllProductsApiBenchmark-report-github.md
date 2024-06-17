@@ -10,12 +10,12 @@ Intel Core i7-14700K, 1 CPU, 28 logical and 20 physical cores
 ```
 | Method              | IterationCount | Mean      | Error    | StdDev   |
 |-------------------- |--------------- |----------:|---------:|---------:|
-| **GetAllProductsAsync** | **300**            |  **48.10 ms** | **0.958 ms** | **1.627 ms** |
-| GetProductByIdAsync | 300            |  55.14 ms | 1.068 ms | 1.566 ms |
-| GetExtractAsync     | 300            |  74.40 ms | 1.418 ms | 2.446 ms |
-| **GetAllProductsAsync** | **400**            |  **64.46 ms** | **1.263 ms** | **1.551 ms** |
-| GetProductByIdAsync | 400            |  72.92 ms | 1.441 ms | 2.067 ms |
-| GetExtractAsync     | 400            |  97.92 ms | 1.930 ms | 3.329 ms |
-| **GetAllProductsAsync** | **500**            |  **80.13 ms** | **1.601 ms** | **1.966 ms** |
-| GetProductByIdAsync | 500            |  93.78 ms | 1.856 ms | 3.486 ms |
-| GetExtractAsync     | 500            | 121.32 ms | 2.380 ms | 4.585 ms |
+| **GetAllProductsAsync** | **300**            |  **46.89 ms** | **0.887 ms** | **1.056 ms** |
+| GetProductByIdAsync | 300            |  54.04 ms | 1.048 ms | 1.165 ms |
+| GetExtractAsync     | 300            |  70.03 ms | 1.382 ms | 2.152 ms |
+| **GetAllProductsAsync** | **400**            |  **60.56 ms** | **0.995 ms** | **1.184 ms** |
+| GetProductByIdAsync | 400            |  71.69 ms | 1.365 ms | 1.676 ms |
+| GetExtractAsync     | 400            |  96.16 ms | 1.864 ms | 2.789 ms |
+| **GetAllProductsAsync** | **500**            |  **77.90 ms** | **1.535 ms** | **2.607 ms** |
+| GetProductByIdAsync | 500            |  90.30 ms | 1.789 ms | 3.086 ms |
+| GetExtractAsync     | 500            | 119.97 ms | 2.384 ms | 3.850 ms |
