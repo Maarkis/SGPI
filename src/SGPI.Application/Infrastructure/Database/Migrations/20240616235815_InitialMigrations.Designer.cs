@@ -12,8 +12,8 @@ using SGPI.Application.Infrastructure.Database;
 namespace SGPI.Application.Infrastructure.Database.Migrations
 {
     [DbContext(typeof(AppDatabaseContext))]
-    [Migration("20240616030011_FinancialProductTransactionMap")]
-    partial class FinancialProductTransactionMap
+    [Migration("20240616235815_InitialMigrations")]
+    partial class InitialMigrations
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -76,6 +76,8 @@ namespace SGPI.Application.Infrastructure.Database.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ProductCode");
+
                     b.ToTable("financial_products", (string)null);
                 });
 
@@ -107,6 +109,8 @@ namespace SGPI.Application.Infrastructure.Database.Migrations
                         .HasColumnName("value");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ProductCode");
 
                     b.ToTable("financial_product_details", (string)null);
                 });

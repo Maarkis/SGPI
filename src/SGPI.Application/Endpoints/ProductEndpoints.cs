@@ -1,6 +1,5 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SGPI.Application.Domain.Entities;
 using SGPI.Application.Infrastructure;
 using SGPI.Application.Product.Commands;
 
@@ -27,9 +26,7 @@ public class ProductEndpoints : EndpointGroupBase
     private static async Task<IResult> GetProductList([FromServices] ISender sender)
     {
         var result = await sender.Send(new GetAllProductsCommand());
-        return Results.Ok(result
-            .Select<FinancialProduct, FinancialProductResponse>(x => x)
-            .ToArray());
+        return Results.Ok(result);
     }
 
     private static async Task<IResult> CreateProduct([FromServices] ISender sender, CreateProductCommand command)
@@ -44,7 +41,7 @@ public class ProductEndpoints : EndpointGroupBase
             return Results.BadRequest();
 
         var result = await sender.Send(new GetByIdProductCommand(id));
-        return result is null ? Results.NotFound() : Results.Ok<FinancialProductResponse>(result);
+        return result is null ? Results.NotFound() : Results.Ok(result);
     }
 
     private static async Task<IResult> UpdateProduct([FromServices] ISender sender, Guid id,

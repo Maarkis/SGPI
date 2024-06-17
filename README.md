@@ -137,7 +137,7 @@
 # API de Gestão de Produto Financeiro
 
 Esta documentação fornece uma visão geral de como usar a API de Gestão de Produto Financeiro. Siga os passos abaixo para
-executar os endpoints disponíveis. Você pode utilizar **cURL** ou a [coleção](postman/SGPI.postman_collection.json) do 
+executar os endpoints disponíveis. Você pode utilizar **cURL** ou a [coleção](postman/SGPI.postman_collection.json) do
 **Postman** para fazer as requisições.
 
 **Nota 1:**
@@ -146,6 +146,7 @@ executar os endpoints disponíveis. Você pode utilizar **cURL** ou a [coleção
 - Para execução em container, utilize a URL base: `http://localhost:8080`.
 
 **Nota 2:**
+
 - [Documentação para importação de coleções do Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-data/)
 
 ## Endpoints Disponíveis

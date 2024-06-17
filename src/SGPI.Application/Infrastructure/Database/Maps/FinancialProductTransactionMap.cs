@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SGPI.Application.Domain.Entities;
+using SGPI.Application.Domain.Enum;
 using SGPI.Application.Infrastructure.Database.Maps.Abstract;
 
 namespace SGPI.Application.Infrastructure.Database.Maps;

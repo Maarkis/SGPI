@@ -2,11 +2,11 @@ using System.Net.Http.Headers;
 
 namespace SGPI.Application.Benchmark;
 
-public class ProductClient
+public class ApiClient
 {
     private readonly HttpClient _httpClient;
 
-    public ProductClient()
+    public ApiClient()
     {
         _httpClient = new HttpClient();
         _httpClient.BaseAddress = new Uri("http://localhost:5042");
@@ -25,6 +25,14 @@ public class ProductClient
     public async Task<HttpResponseMessage> GetProductById(string id)
     {
         var response = await _httpClient.GetAsync($"api/products/{id}");
+        response.EnsureSuccessStatusCode();
+
+        return response;
+    }
+
+    public async Task<HttpResponseMessage> GetExtract(int idClient)
+    {
+        var response = await _httpClient.GetAsync($"api/extract/{idClient}");
         response.EnsureSuccessStatusCode();
 
         return response;

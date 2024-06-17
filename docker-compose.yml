@@ -26,16 +26,12 @@
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: 123
       POSTGRES_DB: postgres
-    volumes:
-      - ./database/postgresql/data:/var/lib/postgresql/data
     networks:
       - sgpi-network
   
   sgpi.pgadmin:
     image: dpage/pgadmin4
     container_name: sgpi.pgadmin
-    volumes:
-      - ./database/pgadmin:/pgadmin4/servers.json
     ports:
       - "8082:8082"
     restart: always
