@@ -73,7 +73,8 @@ var notifyInvestAdministratorJob = JobBuilder
     .WithDescription("Notify invest administrator job")
     .Build();
 
-const string everyDayAtMidday = "0 12 * * * ?";
+
+const string everyDayAtMidday = "0 12 * * *";
 var trigger = TriggerBuilder
     .Create()
     .WithIdentity("TriggerNotifyInvestAdministrator", "Notify Invest")
@@ -81,7 +82,7 @@ var trigger = TriggerBuilder
     .WithCronSchedule(everyDayAtMidday)
     .Build();
 
-// # NOTE: (Locally) Trigger the job to run now, and then every 1 minutes...
+// # NOTE: (Run Locally) Trigger the job to run now, and then every 1 minutes...
 // var trigger = TriggerBuilder.Create()
 //     .WithIdentity("TriggerNotifyInvestAdministrator", "Notify Invest")
 //     .WithDescription("Notify invest administrator trigger")

@@ -8,14 +8,14 @@ Intel Core i7-14700K, 1 CPU, 28 logical and 20 physical cores
 
 
 ```
-| Method              | IterationCount | Mean      | Error    | StdDev   |
-|-------------------- |--------------- |----------:|---------:|---------:|
-| **GetAllProductsAsync** | **300**            |  **48.10 ms** | **0.958 ms** | **1.627 ms** |
-| GetProductByIdAsync | 300            |  55.14 ms | 1.068 ms | 1.566 ms |
-| GetExtractAsync     | 300            |  74.40 ms | 1.418 ms | 2.446 ms |
-| **GetAllProductsAsync** | **400**            |  **64.46 ms** | **1.263 ms** | **1.551 ms** |
-| GetProductByIdAsync | 400            |  72.92 ms | 1.441 ms | 2.067 ms |
-| GetExtractAsync     | 400            |  97.92 ms | 1.930 ms | 3.329 ms |
-| **GetAllProductsAsync** | **500**            |  **80.13 ms** | **1.601 ms** | **1.966 ms** |
-| GetProductByIdAsync | 500            |  93.78 ms | 1.856 ms | 3.486 ms |
-| GetExtractAsync     | 500            | 121.32 ms | 2.380 ms | 4.585 ms |
+| Method              | IterationCount | Mean      | Error    | StdDev   | Median    |
+|-------------------- |--------------- |----------:|---------:|---------:|----------:|
+| **GetAllProductsAsync** | **300**            |  **46.29 ms** | **0.923 ms** | **2.495 ms** |  **45.54 ms** |
+| GetProductByIdAsync | 300            |  53.57 ms | 1.062 ms | 1.915 ms |  53.50 ms |
+| GetExtractAsync     | 300            |  97.32 ms | 1.790 ms | 1.674 ms |  96.88 ms |
+| **GetAllProductsAsync** | **400**            |  **60.29 ms** | **1.195 ms** | **1.118 ms** |  **60.53 ms** |
+| GetProductByIdAsync | 400            |  70.49 ms | 1.389 ms | 2.321 ms |  69.70 ms |
+| GetExtractAsync     | 400            | 134.37 ms | 2.679 ms | 5.937 ms | 134.49 ms |
+| **GetAllProductsAsync** | **500**            |  **78.11 ms** | **1.544 ms** | **2.214 ms** |  **78.16 ms** |
+| GetProductByIdAsync | 500            |  90.47 ms | 1.652 ms | 2.316 ms |  89.93 ms |
+| GetExtractAsync     | 500            | 164.03 ms | 3.090 ms | 2.890 ms | 164.00 ms |
