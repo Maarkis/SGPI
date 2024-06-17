@@ -134,6 +134,13 @@
    docker ps
    ```
 
+## Teste
+
+Para executar testes unitário, na raiz do projeto, execute o comando:
+```shell
+dotnet test
+```
+
 ### API de Gestão de Produto Financeiro
 
 Esta documentação fornece uma visão geral de como usar a API de Gestão de Produto Financeiro. Siga os passos abaixo para
